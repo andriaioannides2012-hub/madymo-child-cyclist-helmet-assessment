@@ -14,7 +14,7 @@ This repository contains the Python analysis pipeline used in the master's thesi
 
 > *"Simulation of Child Head Impact Conditions for Cycle Helmet Safety Assessment"*
 
-A MADYMO multibody dynamics model reconstructs a fatal real-world collision between a 12-year-old cyclist and a VW Crafter van on a 20% downhill gradient. A sensitivity study of 58 simulation configurations systematically varies six parameters — bicycle velocity, van velocity, bicycle lean angle, velocity angle, neck flexion and lumbar rotation — to characterise the distribution of head impact conditions. Results are compared against EN 1078 and EN 1080 helmet certification test conditions to assess their representativeness for real-world child cyclist impacts.
+A MADYMO multibody dynamics model reconstructs a fatal real-world collision between a 12-year-old cyclist and a VW Crafter van on a 20% downhill gradient. A sensitivity study of 58 simulation configurations systematically varies six parameters: bicycle velocity, van velocity, bicycle lean angle, velocity angle, neck flexion and lumbar rotation, to characterise the distribution of head impact conditions. Results are compared against EN 1078 and EN 1080 helmet certification test conditions to assess their representativeness for real-world child cyclist impacts.
 
 ---
 
