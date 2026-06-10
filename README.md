@@ -2,19 +2,19 @@
 
 MADYMO multibody simulation pipeline for reconstructing a fatal child cyclist collision and characterising head impact conditions for cycle helmet safety assessment.
 
-**MEng Design Engineering capstone project**  
+**MEng Design Engineering Masters project**  
 Imperial College London, 2026  
-Supervisor: Dr Mazdak Ghajari, HEAD Lab
+Supervisor: Dr Mazdak Ghajari
 
 ---
 
 ## Project overview
 
-This repository contains the Python analysis pipeline used in the master's thesis:
+This repository contains the Python analysis pipeline used in my master's thesis:
 
 > *"Simulation of Child Head Impact Conditions for Cycle Helmet Safety Assessment"*
 
-A MADYMO multibody dynamics model reconstructs a fatal real-world collision between a 12-year-old cyclist and a VW Crafter van on a 20% downhill gradient. A sensitivity study of 58 simulation configurations systematically varies six parameters: bicycle velocity, van velocity, bicycle lean angle, velocity angle, neck flexion and lumbar rotation, to characterise the distribution of head impact conditions. Results are compared against EN 1078 and EN 1080 helmet certification test conditions to assess their representativeness for real-world child cyclist impacts.
+A MADYMO multibody dynamics model reconstructs a fatal real-world collision between a 12-year-old cyclist and a VW Crafter van. A sensitivity study of 58 simulation configurations systematically varies six parameters: bicycle velocity, van velocity, bicycle lean angle, velocity angle, neck flexion and lumbar rotation, to characterise the distribution of head impact conditions. Results are compared against EN 1078 and EN 1080 helmet certification test conditions to assess their representativeness for real-world child cyclist impacts.
 
 ---
 
@@ -24,9 +24,9 @@ A MADYMO multibody dynamics model reconstructs a fatal real-world collision betw
 ├── simulation_functions.py   Core functions: CSV parsing, impact metric extraction,
 │                             HIC15 calculation, results saving
 ├── extract_results.py        Batch extraction of peak impact metrics from completed
-│                             MADYMO simulation runs (no re-running required)
+│                             MADYMO simulation runs
 ├── generate_figures.py       All publication-quality figures for the sensitivity
-│                             study results (Figures 1–9 in report)
+│                             study results (Figures 15–25 in report)
 └── README.md
 ```
 
@@ -66,7 +66,7 @@ Edit the paths and `sheetNames` at the top of `extract_results.py` to match your
 python extract_results.py
 ```
 
-This reads the CSV output files from each completed run and saves peak impact metrics (HIC15, head acceleration, helmet force, neck force, impact speed and angle, Euler angles) to an Excel file in your Results folder.
+This reads the CSV output files from each completed run and saves peak impact metrics (HIC15, head acceleration, helmet force, neck force, impact speed and angle, Euler angles) to an Excel file in Results folder.
 
 ### 3. Generate figures
 
@@ -76,7 +76,7 @@ Edit the `filePath_results` and `filePath_figures` paths at the top of `generate
 python generate_figures.py
 ```
 
-Figures are saved as 300 dpi PNG files. Each figure block is self-contained — comment out any you do not need.
+Figures are saved as PNG files.
 
 ---
 
@@ -91,7 +91,7 @@ Figures are saved as 300 dpi PNG files. Each figure block is self-contained — 
 | Neck flexion, NeckLow R2 (rad) | 0.25 | 0.2 – 0.3 |
 | Lumbar rotation (rad) | 0.51 | 0.47 – 0.55 |
 
-Of 58 configurations, 2 crashed due to joint extrapolation beyond defined range, and 9 produced numerically invalid results (HIC15 > 10,000) confirmed by MADYMO solver warnings. The remaining 46 valid runs were used for analysis.
+Of 58 configurations, 3 crashed due to joint extrapolation beyond defined range, and 9 produced numerically invalid results (HIC15 >. The remaining 46 valid runs were used for analysis.
 
 ---
 
@@ -106,13 +106,14 @@ Of 58 configurations, 2 crashed due to joint extrapolation beyond defined range,
 
 ## Attribution
 
-The core simulation pipeline (`simulation_functions.py`) is adapted from original code by **Lucas Lacroix** (ll6115), Imperial College London HEAD Lab. Modifications by Andria Elia include:
+The core simulation pipeline (`simulation_functions.py`) is adapted from original code by **Lucas Low**, Imperial College London HEAD Lab. Modifications by me include:
 
 - CSV parser rewritten for MADYMO 2021.1 single-row output format
-- HIC15 time-scaling bug fix
+- HIC15 time-scaling fix
 - Impact onset peak detection threshold added (`height=100`) to filter near-zero contact force noise
 - Bicycle-van contact force extraction added
 - Variable naming updated (car → van, motorcycle → bicycle)
+- Removed unwanted code
 
 ---
 
